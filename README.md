@@ -1,4 +1,4 @@
-# WhatsApp Medication Care Agent
+# Carely
 
 An AI agent that helps an elderly person take her medication and keeps her caretaker in the loop — entirely inside WhatsApp. The patient never opens an app, never types, never learns anything new. Her phone just receives a WhatsApp message the way it always does.
 
@@ -81,12 +81,3 @@ Before relying on the full pipeline, `npm run probe` sends a plain text, an imag
 | 6. Patient responses (buttons + voice-note reconciliation) | ✅ |
 | 7. Escalation ladder (40-min follow-up, double-dose, concern → alert) | ✅ |
 | 8. Caretaker alert cards | ✅ (adherence-pattern summary card not yet built) |
-| 9. Ambiguous AI tool actions (Mail/Tasks/Calendar/Drive via MCP) | ❌ not started — needs connection details |
-
-## Known limitations
-
-- **Silent-failure risk**: if the AI message-composition call fails after a state update already succeeded (e.g. a button tap), the patient may get no reply text even though her dose was correctly recorded.
-- **Voice-based double-dose isn't detected** the same way a second button tap is — saying "I took it" twice via voice for an already-confirmed dose doesn't currently trigger the double-dose alert.
-- In-memory de-dup for refill alerts resets on restart (a warning can repeat once after a restart).
-- Durable `HistoryStore`/`ActionStore` are in-memory — conversation history and button-click continuations are lost on restart (fine for a demo, not for production).
-- WhatsApp's Cloud API has no proactive messaging outside the 24-hour customer-service window — this only works because the demo starts with an inbound message from each side.
