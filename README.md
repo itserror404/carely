@@ -69,6 +69,10 @@ curl -X POST -H "Authorization: Bearer $WHATSAPP_ACCESS_TOKEN" \
 
 Before relying on the full pipeline, `npm run probe` sends a plain text, an image, an audio message, and interactive buttons to a test number (`PROBE_TEST_NUMBER` in `.env`) and reports which of the four actually delivered.
 
+### The presentation webpage 
+
+The presentation webpage code source is located under carely-publish folder
+
 ## What's built
 
 | Step | Status |
